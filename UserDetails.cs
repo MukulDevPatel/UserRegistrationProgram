@@ -9,19 +9,19 @@ namespace UserRegistrationProblem
 {
     public class UserDetails
     {
-        public const string NUMBER = "^[0-9]{2}[ ][6-9]{1}[0-9]{9}$";
+        public const string PASSWORD = "^[a-z]{8,}$";
         public static void UserData()
         {
             //For enter to number of user
-            Console.Write("\nEnter number of user: ");
-            string number = Console.ReadLine();
-            if (Regex.IsMatch(number, NUMBER))
+            Console.Write("\nEnter password of user: ");
+            string password = Console.ReadLine();
+            if (Regex.IsMatch(password, PASSWORD))
             {
-                Console.WriteLine("Valid number of user");
+                Console.WriteLine("Valid password of user");
             }
             else
             {
-                Console.WriteLine("Invalid enterd number");
+                Console.WriteLine("Invalid enterd password");
             }
         }
     }
