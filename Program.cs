@@ -4,7 +4,8 @@
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to User Registration Problem");
+            Console.WriteLine("User Registration Problem");
+            UserDetails.UserData();
         }
     }
 }
