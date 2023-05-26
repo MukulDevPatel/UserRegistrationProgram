@@ -9,7 +9,7 @@ namespace UserRegistrationProblem
 {
     public class UserDetails
     {
-        public const string PASSWORD = "^[a-z]{8,}$";
+        public const string PASSWORD = "^(?=.*[A-Z]).{8,}$";
         public static void UserData()
         {
             //For enter to number of user
