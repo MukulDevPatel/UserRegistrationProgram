@@ -9,7 +9,7 @@ namespace UserRegistrationProblem
 {
     public class UserDetails
     {
-        public const string PASSWORD = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()\\-_=+{}[\\]|:;\"'<>,.?/~]).{8,}$";
+        public const string PASSWORD = "^(?=.*[!@#$%^&*()\\-_=+{}[\\]|:;\"'<>,.?/~]).{8,}$";
         public static void UserData()
         {
             //For enter password with at least one special character
