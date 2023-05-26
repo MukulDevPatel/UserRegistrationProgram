@@ -9,19 +9,19 @@ namespace UserRegistrationProblem
 {
     public class UserDetails
     {
-        public const string PASSWORD = "^(?=.*[!@#$%^&*()\\-_=+{}[\\]|:;\"'<>,.?/~]).{8,}$";
+        public const string EMAIL = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         public static void UserData()
         {
-            //For enter password with at least one special character
-            Console.Write("\nEnter password of user: ");
-            string password = Console.ReadLine();
-            if (Regex.IsMatch(password, PASSWORD))
+            //For enter email for user registration
+            Console.Write("\nEnter email of user: ");
+            string email = Console.ReadLine();
+            if (Regex.IsMatch(email, EMAIL))
             {
-                Console.WriteLine("Valid password of user");
+                Console.WriteLine("Valid email of user");
             }
             else
             {
-                Console.WriteLine("Invalid enterd password");
+                Console.WriteLine("Invalid enterd email");
             }
         }
     }
