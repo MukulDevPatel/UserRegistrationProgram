@@ -9,10 +9,10 @@ namespace UserRegistrationProblem
 {
     public class UserDetails
     {
-        public const string PASSWORD = "^(?=.*[A-Z]).{8,}$";
+        public const string PASSWORD = "^(?=.*\\d).{8,}$";
         public static void UserData()
         {
-            //For enter to number of user
+            //For enter password with at least one numeric
             Console.Write("\nEnter password of user: ");
             string password = Console.ReadLine();
             if (Regex.IsMatch(password, PASSWORD))
