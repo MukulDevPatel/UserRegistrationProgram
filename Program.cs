@@ -5,7 +5,8 @@
         public static void Main(string[] args)
         {
             Console.WriteLine("User Registration Problem");
-            UserDetails.UserData();
+            UserDetails userDetails = new UserDetails();
+            userDetails.UserData();
         }
     }
 }
