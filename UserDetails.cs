@@ -77,14 +77,26 @@ namespace UserRegistrationProblem
             number = "91 6234567890";
             passWord = "password";
             email = "robert@gmail.com";
-            Console.WriteLine("happy");
-            return true;
 
             if (firstName == null && lastName == null && email == null && number == null && passWord == null)
             {
                 Console.WriteLine("sad");
                 return false;
             }
-        } 
+            Console.WriteLine("happy");
+            return true;
+        }
+        
+
+        public bool ValidationEmails(string email)
+        {
+            string EMAIL_REGEX = "^[a-zA-Z0-9.+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(email, EMAIL_REGEX);
+        }
+        public bool ValidationForInvalidEmails(string email)
+        {
+            string EMAIL_REGEX = "^[a-zA-Z0-9+-]+@[a-zA-Z0-9]+[a-zA-Z]{2}$";
+            return Regex.IsMatch(email, EMAIL_REGEX);
+        }
     }
 }

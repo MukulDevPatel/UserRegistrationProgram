@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UserRegistrationProblem;
 
 namespace UserRegistrationTest
@@ -35,7 +36,7 @@ namespace UserRegistrationTest
             //arrange
             string firstName = "";
             string lastName = "PiItt";
-            string email = "robert@gmailcom";
+            string email = "bshsh..@com";
             string number = "916234567890";
             string passWord = "paSsword";
 
