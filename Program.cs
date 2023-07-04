@@ -6,7 +6,7 @@
         {
             Console.WriteLine("User Registration Problem");
             UserDetails userDetails = new UserDetails();
-            userDetails.UserData();
+            //userDetails.UserData();
         }
     }
 }

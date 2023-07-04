@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Security.AccessControl;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -9,85 +11,43 @@ namespace UserRegistrationProblem
 {
     public class UserDetails
     {
-
-        public const string Name = "^[A-Z]{1}[a-z]{3,}$";
-        public const string NUMBER = "^[0-9]{2}[ ][6-9]{1}[0-9]{9}$";
-        public const string PASSWORD = "^[a-z]{8}$";
-        public const string EMAIL = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-        public void UserData()
+        public void UserData(string lastName, string email, string number, string passWord, string firstName)
         {
-            string lastName; string email; string number; string passWord; string firstName;
-            
-            firstName = "Chris";
-            if (Regex.IsMatch(firstName, Name))
-            {
-                Console.WriteLine("Valid name of user");
-            }
-            else
-            {
-                Console.WriteLine("Invalid enterd name");
-            }
-
-            lastName = "Pitt";
-            if (Regex.IsMatch(lastName, Name))
-            {
-                Console.WriteLine("Valid name of user");
-            }
-            else
-            {
-                Console.WriteLine("Invalid enterd name");
-            }
-
-            number = "91 6234567890";
-            if (Regex.IsMatch(number, NUMBER))
-            {
-                Console.WriteLine("Valid number of user");
-            }
-            else
-            {
-                Console.WriteLine("Invalid enterd number");
-            }
-
-
-            passWord = "password";
-            if (Regex.IsMatch(passWord, PASSWORD))
-            {
-                Console.WriteLine("Valid passWord of user");
-            }
-            else
-            {
-                Console.WriteLine("Invalid enterd passWord");
-            }
-
-
-            email = "robert@gmail.com";
-            if (Regex.IsMatch(email, EMAIL))
-            {
-                Console.WriteLine("Valid email of user");
-            }
-            else
-            {
-                Console.WriteLine("Invalid enterd email");
-            }
+            if (string.IsNullOrEmpty(firstName)) {throw new InvalidUserDetailsException("Invalid first name");}
+            if (string.IsNullOrEmpty(lastName))  { throw new InvalidUserDetailsException("Invalid last name"); }
+            if (!IsValidNumber(number)) { throw new InvalidUserDetailsException("Invalid number"); }
+            if (!IsValidEmail(email)) { throw new InvalidUserDetailsException("Invalid email"); }
+            if (!IsValidPassword(passWord)) { throw new InvalidUserDetailsException("Invalid password"); }
         }
-        public bool UserData(string lastName, string email, string number, string passWord, string firstName)
+        private bool IsValidFirstName(string firstName) 
         {
-            firstName = "Chris";
-            lastName = "Pitt";
-            number = "91 6234567890";
-            passWord = "password";
-            email = "robert@gmail.com";
+            string firstNameRegex = "^[A-Z]{1}[a-z]{3,}$";
+            return Regex.IsMatch(firstNameRegex, firstName);
+        }
+        private bool IsValidLastName(string lastName)
+        {
+            string lastNameRegex = "^[A-Z]{1}[a-z]{3,}$";
+            return Regex.IsMatch(lastNameRegex, lastName);
+        }
+        private bool IsValidNumber(string number)
+        {
+            string numberRegex = "^[0-9]{2}[ ][6-9]{1}[0-9]{9}$";
+            return Regex.IsMatch(numberRegex, number);
+        }
 
-            if (firstName == null && lastName == null && email == null && number == null && passWord == null)
-            {
-                Console.WriteLine("sad");
-                return false;
-            }
-            Console.WriteLine("happy");
-            return true;
+        private bool IsValidEmail(string email)
+        {
+            string emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(emailRegex, email);
         }
         
+        private bool IsValidPassword(string password)
+        {
+            string passWord = "^[a-z]{8}$";
+            return Regex.IsMatch(password, passWord);
+        }
 
+        //Another test case
         public bool ValidationEmails(string email)
         {
             string EMAIL_REGEX = "^[a-zA-Z0-9.+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
