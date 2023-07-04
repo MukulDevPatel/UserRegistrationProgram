@@ -111,6 +111,7 @@ namespace UserRegistrationTest
                 string password = "password123";
 
                 User user1 = new User(firstName, lastName, email, mobile, password);
+                Console.WriteLine("Test case passed");
             }
             catch (InvalidUserDetailsException ex)
             {

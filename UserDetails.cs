@@ -13,8 +13,8 @@ namespace UserRegistrationProblem
     {
         public void UserData(string lastName, string email, string number, string passWord, string firstName)
         {
-            if (string.IsNullOrEmpty(firstName)) {throw new InvalidUserDetailsException("Invalid first name");}
-            if (string.IsNullOrEmpty(lastName))  { throw new InvalidUserDetailsException("Invalid last name"); }
+            if (!IsValidFirstName(firstName)) {throw new InvalidUserDetailsException("Invalid first name");}
+            if (!IsValidLastName(lastName))  { throw new InvalidUserDetailsException("Invalid last name"); }
             if (!IsValidNumber(number)) { throw new InvalidUserDetailsException("Invalid number"); }
             if (!IsValidEmail(email)) { throw new InvalidUserDetailsException("Invalid email"); }
             if (!IsValidPassword(passWord)) { throw new InvalidUserDetailsException("Invalid password"); }
